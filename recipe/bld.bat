@@ -1,7 +1,13 @@
 set UseEnv=true
 
+if "%ARCH%" == "32" (
+    set PLATFORM=Win32
+) else (
+    set PLATFORM=x64
+)
+
 msbuild ^
-  /p:Platform=x64 ^
+  /p:Platform=%PLATFORM% ^
   /p:Configuration=Release ^
   /p:AdditionalIncludeDirectories=%LIBRARY_INC% ^
   /p:AdditionalDependencies=/LIBPATH:%LIBRARY_LIB% ^

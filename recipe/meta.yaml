@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://ayera.dl.sourceforge.net/project/lcms/lcms/{{ version }}/lcms2-{{ version }}.tar.gz
+  url: https://downloads.sourceforge.net/lcms/lcms2-{{ version }}.tar.gz
   sha256: dc49b9c8e4d7cdff376040571a722902b682a795bf92985a85b48854c270772e
   patches:
     - windows_linux_compat.patch          # [win]
@@ -14,6 +14,7 @@ source:
 build:
   number: 0
   skip: true  # [win and vc<14]
+  skip: True  # [win32]
   run_exports:
     - {{ pin_subpackage("lcms2") }}
 
