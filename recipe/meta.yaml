@@ -1,5 +1,5 @@
 {% set name = "lcms2" %}
-{% set version = "2.11" %}
+{% set version = "2.12" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://downloads.sourceforge.net/lcms/lcms2-{{ version }}.tar.gz
-  sha256: dc49b9c8e4d7cdff376040571a722902b682a795bf92985a85b48854c270772e
+  sha256: 18663985e864100455ac3e507625c438c3710354d85e5cbb7cd4043e11fe10f5
   patches:
     - windows_linux_compat.patch          # [win]
 
