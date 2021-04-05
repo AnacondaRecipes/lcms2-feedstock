@@ -9,7 +9,8 @@ source:
   url: https://github.com/mm2/Little-CMS/archive/{{ version }}.tar.gz
   sha256: e501f1482fc424550ef3abbf86bf1c66090e1661249e89552d39ed5bf935df66
   patches:
-    - windows_linux_compat.patch          # [win]
+    - 0001_windows_linux_compat.patch          # [win]
+    - 0002_change_windows_sdk_version.patch    # [win]
 
 build:
   number: 0
