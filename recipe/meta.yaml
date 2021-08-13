@@ -23,6 +23,7 @@ requirements:
   build:
     - {{ compiler('c') }}
     - make  # [not win]
+    - libtool  # [unix]
   host:
     - jpeg
     - libtiff
