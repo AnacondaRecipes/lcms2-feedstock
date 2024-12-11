@@ -26,9 +26,7 @@ requirements:
     - m2-patch  # [win]
   host:
     - jpeg {{ jpeg }}
-    # libtiff 4.5.1 fixes a missing libtiff.lib on Windows
-    - libtiff 4.5.1          # [win]
-    - libtiff {{ libtiff }}  # [not win]
+    - libtiff {{ libtiff }}
 
 test:
   commands:
