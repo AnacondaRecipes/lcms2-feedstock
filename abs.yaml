@@ -1,3 +1,4 @@
 channels:
+  - https://staging.continuum.io/prefect/fs/libdeflate-feedstock/pr6/915189e
   - https://staging.continuum.io/prefect/fs/lerc-feedstock/pr3/b5361e3
   - https://staging.continuum.io/prefect/fs/libtiff-feedstock/pr20/af67ffc
