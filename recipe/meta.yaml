@@ -21,8 +21,9 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
-    - make     # [not win]
-    - libtool  # [unix]
+    - make      # [not win]
+    - libtool   # [unix]
+    - m2-patch  # [win]
   host:
     - jpeg {{ jpeg }}
     # libtiff 4.5.1 fixes a missing libtiff.lib on Windows
@@ -47,7 +48,7 @@ test:
     - if not exist %LIBRARY_BIN%\\lcms2.dll exit 1  # [win]
 
 about:
-  home: http://www.littlecms.com/
+  home: https://www.littlecms.com/
   dev_url: https://github.com/mm2/Little-CMS
   doc_url: https://github.com/mm2/Little-CMS/tree/master/doc
   license: MIT
