@@ -25,7 +25,7 @@ requirements:
     - libtool  # [unix]
   host:
     - jpeg {{ jpeg }}
-    - libtiff 4.5.1
+    - libtiff {{ libtiff }}
 
 test:
   commands:
