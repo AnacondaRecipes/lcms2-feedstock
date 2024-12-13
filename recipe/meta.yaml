@@ -11,6 +11,7 @@ source:
   patches:
     - 0001_windows_linux_compat.patch          # [win]
     - 0002_change_windows_sdk_version.patch    # [win]
+    - 0003_fix_a_bug_in_planar_half16_formatter.patch
 
 build:
   number: 0
@@ -24,6 +25,7 @@ requirements:
     - make      # [not win]
     - libtool   # [unix]
     - m2-patch  # [win]
+    - patch     # [not win]
   host:
     - jpeg {{ jpeg }}
     - libtiff {{ libtiff }}
