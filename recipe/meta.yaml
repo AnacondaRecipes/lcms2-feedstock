@@ -14,7 +14,7 @@ source:
     - 0003_fix_a_bug_in_planar_half16_formatter.patch
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win and vc<14]
   run_exports:
     - {{ pin_subpackage("lcms2") }}
@@ -28,7 +28,7 @@ requirements:
     - patch     # [not win]
   host:
     - jpeg {{ jpeg }}
-    - libtiff {{ libtiff }}
+    - libtiff 4.7.0
 
 test:
   commands:
