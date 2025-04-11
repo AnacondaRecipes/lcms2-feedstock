@@ -28,7 +28,7 @@ requirements:
     - patch     # [not win]
   host:
     - jpeg {{ jpeg }}
-    - libtiff 4.7.0
+    - libtiff {{ libtiff }}
 
 test:
   commands:
