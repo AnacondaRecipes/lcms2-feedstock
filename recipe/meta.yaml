@@ -13,7 +13,7 @@ source:
     - 0002_change_windows_sdk_version.patch    # [win]
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win and vc<14]
   run_exports:
     - {{ pin_subpackage("lcms2") }}
@@ -25,9 +25,8 @@ requirements:
     - make      # [not win]
     - libtool   # [unix]
   host:
-    - libjpeg-turbo 3.1.2
-    # 4.7.1 is version which is built with libjpeg-turbo
-    - libtiff 4.7.1
+    - jpeg {{ jpeg }}
+    - libtiff {{ libtiff }}
 
 test:
   commands:
