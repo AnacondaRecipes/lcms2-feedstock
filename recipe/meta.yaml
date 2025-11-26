@@ -1,20 +1,19 @@
 {% set name = "lcms2" %}
-{% set version = "2.16" %}
+{% set version = "2.17" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/mm2/Little-CMS/releases/download/lcms{{ version }}/lcms2-{{ version }}.tar.gz
-  sha256: d873d34ad8b9b4cea010631f1a6228d2087475e4dc5e763eb81acc23d9d45a51
+  url: https://github.com/mm2/Little-CMS/releases/download/lcms{{ version }}/{{ name }}-{{ version }}.tar.gz
+  sha256: d11af569e42a1baa1650d20ad61d12e41af4fead4aa7964a01f93b08b53ab074
   patches:
     - 0001_windows_linux_compat.patch          # [win]
     - 0002_change_windows_sdk_version.patch    # [win]
-    - 0003_fix_a_bug_in_planar_half16_formatter.patch
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win and vc<14]
   run_exports:
     - {{ pin_subpackage("lcms2") }}
@@ -22,10 +21,9 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib('c') }}
     - make      # [not win]
     - libtool   # [unix]
-    - m2-patch  # [win]
-    - patch     # [not win]
   host:
     - jpeg {{ jpeg }}
     - libtiff {{ libtiff }}
@@ -48,7 +46,7 @@ test:
     - if not exist %LIBRARY_BIN%\\lcms2.dll exit 1  # [win]
 
 about:
-  home: https://www.littlecms.com/
+  home: https://www.littlecms.com
   dev_url: https://github.com/mm2/Little-CMS
   doc_url: https://github.com/mm2/Little-CMS/tree/master/doc
   license: MIT
