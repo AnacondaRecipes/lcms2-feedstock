@@ -1,0 +1,9 @@
+# Pin to VS 2019 — bld.bat builds Projects\VC2019\lcms2.sln, and those
+# vcxproj files require PlatformToolset v142. Default CI image now ships
+# only VS 2022 (v144), which makes msbuild fail with MSB8052.
+c_compiler:           # [win]
+  - vs2019            # [win]
+cxx_compiler:         # [win]
+  - vs2019            # [win]
+vc:                   # [win]
+  - '14.2'            # [win]
