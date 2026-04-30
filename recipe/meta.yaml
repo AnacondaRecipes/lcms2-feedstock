@@ -13,9 +13,9 @@ source:
   # (only VC2019/VC2022/VC2026 remain), so these patches no longer apply to any
   # file in the tree. Kept here as a reminder — the actual fixes still need to
   # be re-targeted to Projects/VC2019/ before the next Windows build
-  patches:
-    - 0001_windows_linux_compat.patch          # [win]
-    - 0002_change_windows_sdk_version.patch    # [win]
+  # patches:
+  #   - 0001_windows_linux_compat.patch          # [win]
+  #   - 0002_change_windows_sdk_version.patch    # [win]
 
 build:
   number: 0
