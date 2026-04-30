@@ -1,8 +1,12 @@
 set UseEnv=true
 
+REM VC2019 vcxproj files pin PlatformToolset=v142, but the CI image only has
+REM the VS 2022 v143/v144 toolsets. Override here so msbuild uses what is
+REM actually installed (avoids MSB8052 without patching the .sln/.vcxproj).
 msbuild ^
   /p:Platform=x64 ^
   /p:Configuration=Release ^
+  /p:PlatformToolset=v143 ^
   /p:AdditionalIncludeDirectories=%LIBRARY_INC% ^
   /p:AdditionalDependencies=/LIBPATH:%LIBRARY_LIB% ^
   Projects\VC2019\lcms2.sln
