@@ -8,18 +8,9 @@ package:
 source:
   url: https://github.com/mm2/Little-CMS/releases/download/lcms{{ version }}/{{ name }}-{{ version }}.tar.gz
   sha256: 49e7e134e4299733dd0eda434fa468997a28ab3d33fa397c642b03644f552216
-  # NOTE: both Windows patches below were written for lcms2 < 2.16, when upstream
-  # still shipped Projects/VC2017/. Starting with 2.19 that directory is gone
-  # (only VC2019/VC2022/VC2026 remain), so these patches no longer apply to any
-  # file in the tree. Kept here as a reminder — the actual fixes still need to
-  # be re-targeted to Projects/VC2019/ before the next Windows build
-  # patches:
-  #   - 0001_windows_linux_compat.patch          # [win]
-  #   - 0002_change_windows_sdk_version.patch    # [win]
 
 build:
   number: 0
-  # skip: true  # [win and vc<14]
   run_exports:
     - {{ pin_subpackage("lcms2") }}
 
