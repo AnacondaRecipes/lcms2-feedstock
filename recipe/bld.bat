@@ -1,5 +1,6 @@
 set UseEnv=true
 
+copy %LIBRARY_LIB%\jpeg.lib %LIBRARY_LIB%\libjpeg.lib
 REM VC2019 vcxproj files pin PlatformToolset=v142, but the CI image only has
 REM the VS 2022 v143/v144 toolsets. Override here so msbuild uses what is
 REM actually installed (avoids MSB8052 without patching the .sln/.vcxproj).
