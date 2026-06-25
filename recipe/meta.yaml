@@ -1,5 +1,5 @@
 {% set name = "lcms2" %}
-{% set version = "2.17" %}
+{% set version = "2.19.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,14 +7,10 @@ package:
 
 source:
   url: https://github.com/mm2/Little-CMS/releases/download/lcms{{ version }}/{{ name }}-{{ version }}.tar.gz
-  sha256: d11af569e42a1baa1650d20ad61d12e41af4fead4aa7964a01f93b08b53ab074
-  patches:
-    - 0001_windows_linux_compat.patch          # [win]
-    - 0002_change_windows_sdk_version.patch    # [win]
+  sha256: bfc54f7bab59fbc921012014a8032e4cba4abd46db47d46b76416a8c0b2815c8
 
 build:
   number: 0
-  skip: true  # [win and vc<14]
   run_exports:
     - {{ pin_subpackage("lcms2") }}
 
@@ -25,7 +21,7 @@ requirements:
     - make      # [not win]
     - libtool   # [unix]
   host:
-    - jpeg {{ jpeg }}
+    - libjpeg-turbo {{ libjpeg_turbo }}
     - libtiff {{ libtiff }}
 
 test:

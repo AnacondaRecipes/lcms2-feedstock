@@ -3,9 +3,14 @@ set UseEnv=true
 if "%target_platform%"=="win-64" set "MSBUILD_PLATFORM=x64"
 if "%target_platform%"=="win-arm64" set "MSBUILD_PLATFORM=ARM64"
 
+copy %LIBRARY_LIB%\jpeg.lib %LIBRARY_LIB%\libjpeg.lib
+REM VC2019 vcxproj files pin PlatformToolset=v142, but the CI image only has
+REM the VS 2022 v143/v144 toolsets. Override here so msbuild uses what is
+REM actually installed (avoids MSB8052 without patching the .sln/.vcxproj).
 msbuild ^
   /p:Platform=%MSBUILD_PLATFORM% ^
   /p:Configuration=Release ^
+  /p:PlatformToolset=v143 ^
   /p:AdditionalIncludeDirectories=%LIBRARY_INC% ^
   /p:AdditionalDependencies=/LIBPATH:%LIBRARY_LIB% ^
   /t:lcms2_DLL;lcms2_static;jpegicc;tifficc;linkicc;transicc;psicc ^
