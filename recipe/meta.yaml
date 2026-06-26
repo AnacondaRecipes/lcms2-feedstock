@@ -8,6 +8,11 @@ package:
 source:
   url: https://github.com/mm2/Little-CMS/releases/download/lcms{{ version }}/{{ name }}-{{ version }}.tar.gz
   sha256: bfc54f7bab59fbc921012014a8032e4cba4abd46db47d46b76416a8c0b2815c8
+  patches:
+    # Adapted from conda-forge/lcms2-feedstock win_jpegturbo.patch
+    # (https://github.com/conda-forge/lcms2-feedstock); ARM64 tifficc link deps
+    # added for upstream 2.19.1 (libtiff.lib -> tiff.lib;jpeg-static.lib).
+    - win_jpegturbo.patch  # [win]
 
 build:
   number: 1
