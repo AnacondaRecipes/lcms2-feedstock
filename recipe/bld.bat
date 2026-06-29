@@ -1,7 +1,12 @@
 set UseEnv=true
 
+set "MSBUILD_PLATFORM="
 if "%target_platform%"=="win-64" set "MSBUILD_PLATFORM=x64"
 if "%target_platform%"=="win-arm64" set "MSBUILD_PLATFORM=ARM64"
+if not defined MSBUILD_PLATFORM (
+  echo ERROR: Unsupported or unset target_platform="%target_platform%"
+  exit /b 1
+)
 
 REM VC2019 vcxproj files pin PlatformToolset=v142, but the CI image only has
 REM the VS 2022 v143/v144 toolsets. Override here so msbuild uses what is
